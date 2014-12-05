@@ -15,7 +15,20 @@ app.get('/', function(request, response) {
 });
 
 app.get('/api', function(request, response) {
-    response.sendfile('english.json');
+    Words = response.sendfile('english.json');
+});
+
+app.get("/api/words/:word", function(request, response) {
+    var words = require('./english.json');
+    
+    word = words.filter(function(wordCollection){ 
+        for (var country in wordCollection){
+            if (wordCollection[country] == request.params.word){ return true;}
+        }
+        return false
+    })
+
+    response.send(word);
 });
 
 module.exports = app;
