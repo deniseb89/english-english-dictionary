@@ -10,9 +10,12 @@
     "node": "0.10.31"
   },
   "dependencies": {
+    "body-parser": "^1.8.4",
+    "csv-to-json": "0.0.1",
+    "debug": "^2.1.0",
     "express": "~4.9.0",
-    "body-parser": "~1.8.1",
     "handlebars": "^2.0.0",
+    "levenshtein-distance": "0.0.2",
     "method-override": "^2.3.0",
     "pg": "^4.0.0",
     "sequelize": "^2.0.0-rc2",
