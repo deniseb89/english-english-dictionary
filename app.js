@@ -28,15 +28,24 @@ app.get('/api/words/random', function(request, response) {
 app.get("/api/words/:word", function(request, response) {
     var words = require('./english.json');
     var input = request.params.word;
+    for (var i=0; i<words.length; i++) {
+        var leven = new ld(words[i])
+        leven.find(input, function(result) {
+            console.log(result);
+        });
+    };
     word = words.filter(function(wordCollection) { 
         for (var country in wordCollection) {
-            if (wordCollection[country] == input) { 
+            if (wordCollection[country] == result) { 
                 return true;
-            }        
+            // } else if (ld.()){
+            //     return true
+            // }
+        }
         return false;
     }
     response.send(word);
-    });    
+});    
 });
 
 
