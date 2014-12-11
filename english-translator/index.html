@@ -4,19 +4,33 @@
   <meta charset="UTF-8">
   <title>English Translator</title>
   <link rel="stylesheet" href="stylesheets/styles.css">
-  <script type="text/template" id="word-template">
-    <%= value %> (<%= key %>)
-  </script>
 </head>
 <body>
-  <script src="/javascripts/lib/jquery.js"></script>
-  <script src="/javascripts/lib/underscore.js"></script>
-  <script src="/javascripts/lib/backbone.js"></script>
-  <script src="/javascripts/app.js"></script>
+  <script type="text/template" id="word-template">
+    <li>
+      <%= model.get('American') %> (American)
+    </li> 
+    <li>
+      <%= model.get('British') %> (British)
+    </li>
+    <li>
+      <%= model.get('Australian') %> (Australian)
+    </li>
+    <li>
+      <%= model.get('South African') %> (South African)
+    </li>
+    <li>
+      <%= model.get('Jamaican') %> (Jamaican)
+    </li>
+  </script>
   <form id="form1">
     <input type="text" id="word" />
     <input type="submit" value="Search" /><br>
   </form>
   <ul id="words"></ul>
+  <script src="/javascripts/lib/jquery.js"></script>
+  <script src="/javascripts/lib/underscore.js"></script>
+  <script src="/javascripts/lib/backbone.js"></script>
+  <script src="/javascripts/app.js"></script>
 </body>
 </html>
