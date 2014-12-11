@@ -9,15 +9,12 @@ var WordList = Backbone.Collection.extend({
 
 var WordView = Backbone.View.extend({
   tagName: 'ul',
-  template: function(){
-    return _.template($("#word-template").html())
-  },
+  template: _.template($("#word-template").html()),
   render: function() {
-    debugger;
-    this.$el.html(this.template({model: this.model.toJSON()})); //the li
+    this.$el.html(this.template(this.model.toJSON())); //the li
     return this;
   }
-});
+}); 
 
 var WordListView = Backbone.View.extend({
   el: '#words',
@@ -31,7 +28,7 @@ var WordListView = Backbone.View.extend({
       var view = new WordView({ model: word });
       that.$el.append(view.render().$el);
       return this;
-    });
+    })
   }
 });
 
