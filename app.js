@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var json = csv.parse('english.csv');
-csv.write('english.json');
+// csv.write('english.json');
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -36,14 +36,35 @@ app.get("/api/words/:word", function(request, response) {
     var input = request.params.word;
     word = words.filter(function(wordCollection) { 
         for (var country in wordCollection) {
-            if (wordCollection[country] == input) { 
+            if (filterCollection()) { 
                 return true;
+            }
         }
-    }
-        return false;
+            return false;
     });
     response.send(word);    
 });
+
+function filterCollection(wordCollection) {
+    for(var country in wordCollection) {
+        var collection = wordCollection[country]
+        if (wordCollection[country] == input) { 
+            return true;
+        } else if (filterArray()) {
+            return true;
+        }
+    }
+        return false;    
+};
+
+function filterArray(collection) {
+    for(var i = 0; i < collection.length; i++) {
+        if (collection[i] == input) {
+            return true;
+        } 
+    }    
+        return false;    
+}
 
 
 

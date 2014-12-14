@@ -135,7 +135,7 @@ dark chocolate,plain chocolate,plain chocolate,plain chocolate,chocolate
 dead on,bang on,bang on,bang on,right
 defroster,demister,demister,demister,air
 derby hat,bowler,bowler,bowler,hat
-dessert,puddings/afters/dessert/sweets,,dessert,cake
+dessert,puddings/afters/dessert/sweets,dessert,cake
 detour,diversion,diversion,diversion,detour
 diaper,nappy,nappy,nappy,pampers
 dim,dip,dip,dip,dip
@@ -258,7 +258,7 @@ inside lane,outside lane,outside lane,outside lane,outside lane
 installment plan,hire purchase,hire purchase,hire purchase,hire purchase
 instant replay,action replay,action replay,action replay,instant replay
 intermission,interval,interval,interval,intermission
-intersection,crossroads/junction,crossroads/junction,stopstreet,crossroads/junction
+intersection,crossroads/junction, / junction,stopstreet,crossroads/junction
 inventory,stocktaking,stocktaking,stocktaking,stocktaking
 Italian ice,water ice,water ice,water ice,shaved ice
 jacket,anorak,anorak,anorak,jacket
