@@ -35,36 +35,21 @@ app.get("/api/words/:word", function(request, response) {
     var words = require('./english.json');
     var input = request.params.word;
     word = words.filter(function(wordCollection) { 
-        for (var country in wordCollection) {
-            if (filterCollection()) { 
-                return true;
+        for(var country in wordCollection) {
+        var collection = wordCollection[country];
+        if (collection == input) { 
+            return true;
+        } else
+            for(var i=0; i<collection.length; i++) {
+                if (collection[i] == input) {
+                    return true;
+                }
             }
-        }
-            return false;
+        }    
+        return false;
     });
     response.send(word);    
 });
-
-function filterCollection(wordCollection) {
-    for(var country in wordCollection) {
-        var collection = wordCollection[country]
-        if (wordCollection[country] == input) { 
-            return true;
-        } else if (filterArray()) {
-            return true;
-        }
-    }
-        return false;    
-};
-
-function filterArray(collection) {
-    for(var i = 0; i < collection.length; i++) {
-        if (collection[i] == input) {
-            return true;
-        } 
-    }    
-        return false;    
-}
 
 
 
