@@ -33,17 +33,12 @@ app.get('/api/words/random', function(request, response) {
 
 app.get("/api/words/:word", function(request, response) {
     var words = require('./english.json');
-    var input = request.params.word;
+    var input = new RegExp(request.params.word);
     word = words.filter(function(wordCollection) { 
         for(var country in wordCollection) {
-        var collection = wordCollection[country];
-        if (collection == input) { 
-            return true;
-        } else
-            for(var i=0; i<collection.length; i++) {
-                if (collection[i] == input) {
-                    return true;
-                }
+            var translation = wordCollection[country];
+            if (input.test(translation)) { 
+                return true;
             }
         }    
         return false;
