@@ -9,7 +9,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var json = csv.parse('english.csv');
-// csv.write('english.json');
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -33,6 +32,7 @@ app.get('/api/words/random', function(request, response) {
 
 app.get("/api/words/:word", function(request, response) {
     var words = require('./english.json');
+    var leven = new ld(words);
     var input = new RegExp(request.params.word);
     word = words.filter(function(wordCollection) { 
         for(var country in wordCollection) {
