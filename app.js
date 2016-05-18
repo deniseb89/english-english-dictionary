@@ -2,7 +2,6 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var csv = require('csv-to-json');
-var ld = require("levenshtein-distance");
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,12 +31,11 @@ app.get('/api/words/random', function(request, response) {
 
 app.get("/api/words/:word", function(request, response) {
     var words = require('./english.json');
-    var leven = new ld(words);
-    var input = new RegExp(request.params.word);
+    var input = request.params.word;
     word = words.filter(function(wordCollection) { 
         for(var country in wordCollection) {
             var translation = wordCollection[country];
-            if (input.test(translation)) { 
+            if (input == translation) { 
                 return true;
             }
         }    
